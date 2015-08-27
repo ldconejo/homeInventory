@@ -60,7 +60,7 @@ class dbClass():
     # Deletes entry from table
     def deleteDBEntry(self,tableName,uniqueID, columnID):
         # Build SQL query to delete entry
-        query = 'DELETE FROM ' + tableName + ' WHERE ' + columnID + '=' + uniqueID
+        query = 'DELETE FROM ' + tableName + ' WHERE ' + columnID + '=' + "'" + uniqueID + "'"
         self.runDBQuery(query)
 
     # Searches DB for an entry
@@ -81,7 +81,6 @@ class dbClass():
         resultList = []
         for row in cur.fetchall():
             resultList.append(row)
-
         return resultList
 
     # Runs a DB query
